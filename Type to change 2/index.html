@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, interactive-widget=resizes-content">
+  <title>Type to change a future | Beyond the Ordinary</title>
+  
+  <!-- SEO & Social Meta Tags -->
+  <meta name="description" content="Type. Score. Challenge. Repeat. Join the competitive typing challenge by Team Beyond the Ordinary for children's digital learning and computer access.">
+  <meta property="og:title" content="Type to change a future | Charity Typing Challenge">
+  <meta property="og:description" content="Turn your typing speed into educational opportunity. Join the challenge by Team Beyond the Ordinary!">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Incoming Friend Challenge Banner -->
+  <div id="challenge-banner" class="challenge-banner hidden">
+    ⚡ Challenge Alert: <strong id="challenge-banner-name">A Friend</strong> scored <strong id="challenge-banner-wpm">75</strong> WPM and challenged YOU to beat it! Can you do it for charity?
+  </div>
+
+  <!-- Site Navigation Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand-badge">
+        <div class="brand-icon-wrapper">⌨️</div>
+        <div class="brand-text-col">
+          <span class="brand-team">Beyond the Ordinary</span>
+          <span class="brand-campaign">Type to change a future</span>
+        </div>
+      </div>
+
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#leaderboard" class="nav-link">Leaderboard</a></li>
+          <li><a href="#typing-arena" class="nav-link">Typing Arena</a></li>
+          <li><a href="#about" class="nav-link">About Mission</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <!-- Classic Touch Buttons for Instagram & TikTok (Navbar) -->
+        <a href="https://instagram.com/type4future" target="_blank" rel="noopener noreferrer" class="btn-touch-nav btn-touch-nav-ig" title="Forward to Instagram @type4future">
+          <svg class="social-svg-icon" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+          </svg>
+          <span>Instagram</span>
+        </a>
+
+        <a href="https://www.tiktok.com/@type4future" target="_blank" rel="noopener noreferrer" class="btn-touch-nav btn-touch-nav-tt" title="Forward to TikTok @type4future">
+          <svg class="social-svg-icon" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64c.29 0 .58.04.86.12V9.32a6.33 6.33 0 0 0-.86-.06 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.75a8.18 8.18 0 0 0 4.77 1.52V6.82a4.85 4.85 0 0 1-1-.13z"/>
+          </svg>
+          <span>TikTok</span>
+        </a>
+
+        <button id="audio-toggle-btn" class="btn-audio-toggle" title="Toggle tactile sound">
+          🔊 Sound On
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section with Fundraising Progress -->
+  <section class="hero-section">
+    <div class="container hero-content">
+      <div class="hero-pill">
+        ✨ Digital Literacy Charity Campaign
+      </div>
+
+      <p class="hero-slogan">TYPE. SCORE. CHALLENGE. REPEAT.</p>
+
+      <h1 class="hero-title">
+        Turn Your Typing Speed Into <span class="gradient-text">Educational Hope</span>
+      </h1>
+
+      <p class="hero-description">
+        Join <strong>Team Beyond the Ordinary</strong> in bridging the digital divide. Every word you type in this challenge powers digital literacy, computers, and equal learning opportunities for underprivileged children.
+      </p>
+
+      <!-- Hero Action Buttons -->
+      <div class="hero-cta-group">
+        <button id="hero-start-btn" class="btn-primary-glow" type="button">
+          ⚡ Start Typing Challenge
+        </button>
+      </div>
+
+      <!-- Prominent Classic Touch Buttons for Instagram & TikTok -->
+      <div class="social-touch-group">
+        <a href="https://instagram.com/type4future" target="_blank" rel="noopener noreferrer" class="btn-social-touch btn-social-touch-ig">
+          <svg class="social-svg-icon" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+          </svg>
+          <span>Follow @type4future on Instagram</span>
+        </a>
+
+        <a href="https://www.tiktok.com/@type4future" target="_blank" rel="noopener noreferrer" class="btn-social-touch btn-social-touch-tiktok">
+          <svg class="social-svg-icon" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64c.29 0 .58.04.86.12V9.32a6.33 6.33 0 0 0-.86-.06 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.75a8.18 8.18 0 0 0 4.77 1.52V6.82a4.85 4.85 0 0 1-1-.13z"/>
+          </svg>
+          <span>Follow @type4future on TikTok</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       AGGRESSIVE LEADERBOARD SECTION (Showing directly after the fundraise number)
+       ========================================================================== -->
+  <section id="leaderboard" class="leaderboard-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag aggressive-tag">⚔️ APEX BATTLEGROUND</span>
+        <h2 class="section-title aggressive-title">THE APEX LEADERBOARD — SURVIVAL OF THE FASTEST</h2>
+        <p class="section-subtitle">
+          Only the fiercest keystrokes conquer the summit. Defeat the reigning champions and get blasted on <strong>@type4future</strong>!
+        </p>
+        <div class="db-sync-status-row">
+          <span class="live-pulse-dot"></span>
+          <span class="db-sync-label" id="db-sync-label">⚡ Live SQLite Sync: Active</span>
+          <span class="db-sync-stats" id="db-sync-stats">0 typists registered</span>
+        </div>
+      </div>
+
+      <!-- Social Banner with Classic Buttons -->
+      <div class="ig-featured-banner">
+        <div class="ig-featured-text">
+          🔥 <strong>SOCIAL SPOTLIGHT:</strong> Top typists get reposted on our official feeds! Follow to see who takes the crown:
+        </div>
+        <div class="ig-featured-actions">
+          <a href="https://instagram.com/type4future" target="_blank" rel="noopener noreferrer" class="btn-social-touch-mini btn-social-touch-ig">
+            <svg class="social-svg-icon" viewBox="0 0 24 24" fill="currentColor" style="width:14px;height:14px;">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+            </svg>
+            <span>Instagram</span>
+          </a>
+          <a href="https://www.tiktok.com/@type4future" target="_blank" rel="noopener noreferrer" class="btn-social-touch-mini btn-social-touch-tt">
+            <svg class="social-svg-icon" viewBox="0 0 24 24" fill="currentColor" style="width:14px;height:14px;">
+              <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64c.29 0 .58.04.86.12V9.32a6.33 6.33 0 0 0-.86-.06 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.75a8.18 8.18 0 0 0 4.77 1.52V6.82a4.85 4.85 0 0 1-1-.13z"/>
+            </svg>
+            <span>TikTok</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Aggressive Top 3 Podium -->
+      <div class="podium-container" id="leaderboard-podium">
+        <!-- Rendered dynamically -->
+      </div>
+
+      <!-- Table Toolbar -->
+      <div class="leaderboard-toolbar">
+        <div class="leaderboard-tabs">
+          <button class="leaderboard-tab-btn active" data-filter="all" type="button">All Typists</button>
+          <button class="leaderboard-tab-btn" data-filter="novice" type="button">Novice</button>
+          <button class="leaderboard-tab-btn" data-filter="challenger" type="button">Challenger</button>
+          <button class="leaderboard-tab-btn" data-filter="master" type="button">Master</button>
+        </div>
+
+        <div class="leaderboard-search-box">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="leaderboard-search-input" placeholder="Search by nickname or @handle...">
+        </div>
+      </div>
+
+      <!-- Live Participant Count Bar -->
+      <div class="leaderboard-count-banner" id="leaderboard-count-banner">
+        Showing all <strong id="leaderboard-total-count">0</strong> ranked combatants
+      </div>
+
+      <!-- Rankings Table -->
+      <div class="leaderboard-table-card">
+        <table class="leaderboard-table">
+          <thead>
+            <tr>
+              <th>Rank</th>
+              <th>Combatant</th>
+              <th>Battle Points</th>
+              <th>Killer Speed</th>
+              <th>Accuracy</th>
+              <th>Tier</th>
+              <th>Battle</th>
+            </tr>
+          </thead>
+          <tbody id="leaderboard-table-body">
+            <!-- Rendered dynamically -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       INTERACTIVE TYPING ARENA
+       (Starts with dedicated start button and 3,2,1,START! countdown)
+       ========================================================================== -->
+  <section id="typing-arena" class="typing-section">
+    <div class="container typing-arena-container">
+      <div class="section-header">
+        <span class="section-tag">Arena Battlefield</span>
+        <h2 class="section-title">The Typing Arena</h2>
+        <p class="section-subtitle">
+          Lock in your nickname, select your level, and hit Start for the countdown!
+        </p>
+      </div>
+
+      <!-- Arena Controls Bar -->
+      <div class="arena-controls-bar">
+        <!-- Player Nickname Indicator / Trigger -->
+        <div class="player-status-chip-container">
+          <button id="player-status-trigger" class="player-status-chip unassigned" type="button" title="Click to set or change your nickname">
+            <span id="player-chip-avatar">👤</span>
+            <span id="player-chip-text">Guest Typist (Click or touch to set nickname)</span>
+            <span class="chip-edit-icon">✏️</span>
+          </button>
+        </div>
+
+        <!-- Level Selector Tabs -->
+        <div class="arena-level-selector">
+          <button class="arena-level-btn" data-level="novice" type="button">
+            🌱 Novice (60s)
+          </button>
+          <button class="arena-level-btn active" data-level="challenger" type="button">
+            ⚡ Challenger (45s)
+          </button>
+          <button class="arena-level-btn" data-level="master" type="button">
+            🔥 Master (30s)
+          </button>
+        </div>
+      </div>
+
+      <!-- Active Typing Arena Card -->
+      <div class="typing-arena-card" id="typing-arena-card">
+        
+        <!-- Dedicated Start Button Overlay/Header -->
+        <div class="arena-start-container" id="arena-start-container">
+          <button id="arena-start-btn" class="btn-arena-start" type="button">
+            ⚡ TOUCH / CLICK TO START
+          </button>
+        </div>
+
+        <!-- Countdown Overlay (3, 2, 1, START!) -->
+        <div id="countdown-overlay" class="countdown-overlay hidden">
+          <div class="countdown-inner">
+            <div id="countdown-text" class="countdown-text">3</div>
+            <div class="countdown-subtext">GET YOUR FINGERS READY!</div>
+          </div>
+        </div>
+
+        <!-- Live Metrics Header -->
+        <div class="typing-stats-bar">
+          <div class="typing-stat-group">
+            <div class="arena-stat">
+              <span class="arena-stat-label">WPM</span>
+              <span class="arena-stat-val highlight-cyan" id="typing-live-wpm">0</span>
+            </div>
+            <div class="arena-stat">
+              <span class="arena-stat-label">Accuracy</span>
+              <span class="arena-stat-val highlight-emerald" id="typing-live-acc">100%</span>
+            </div>
+            <div class="arena-stat">
+              <span class="arena-stat-label">Live Rank</span>
+              <span class="arena-stat-val highlight-rank" id="typing-live-rank">#--</span>
+            </div>
+            <div class="arena-stat chasing-stat">
+              <span class="arena-stat-label">Chasing</span>
+              <span class="arena-stat-val highlight-target" id="typing-live-chasing">Awaiting...</span>
+            </div>
+            <div class="arena-stat">
+              <span class="arena-stat-label">Errors</span>
+              <span class="arena-stat-val" id="typing-live-err">0</span>
+            </div>
+          </div>
+
+          <div class="arena-stat" style="text-align: right;">
+            <span class="arena-stat-label">Time Remaining</span>
+            <span class="arena-stat-val highlight-timer" id="typing-live-timer">45s</span>
+          </div>
+        </div>
+
+        <!-- Timer Linear Progress Bar -->
+        <div class="typing-timer-track">
+          <div class="typing-timer-bar-fill" id="typing-timer-bar" style="width: 100%;"></div>
+        </div>
+
+        <!-- Passage Theme Info -->
+        <div class="passage-meta-header">
+          <span class="passage-theme-tag" id="passage-theme-title">Challenger: "Bridging the Divide"</span>
+          <button id="change-passage-btn" class="btn-cycle-passage" type="button">
+            🔄 New Passage
+          </button>
+        </div>
+
+        <!-- The Interactive Passage Text Container -->
+        <div class="typing-passage-box" id="typing-passage-display">
+          <!-- Populated dynamically with character spans -->
+        </div>
+
+        <!-- Invisible accessible input for physical and on-screen keyboard capture -->
+        <input 
+          type="text" 
+          id="typing-hidden-input" 
+          class="typing-hidden-input" 
+          autocomplete="off" 
+          autocapitalize="off" 
+          spellcheck="false"
+        >
+
+        <!-- Arena Footer Controls -->
+        <div class="typing-arena-footer">
+          <div class="typing-hint">
+            <span>💡 Touch Start button above to begin. Press <span class="key-badge">Tab</span> or <span class="key-badge">Esc</span> to reset.</span>
+          </div>
+          <button id="typing-restart-btn" class="btn-restart-arena" type="button">
+            ↺ Reset Test
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       CAMPAIGN STORY & IMPACT
+       ========================================================================== -->
+  <section id="about" class="story-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Activity Overview</span>
+        <h2 class="section-title">Why Type to change a future?</h2>
+        <p class="section-subtitle">
+          Closing the digital divide by transforming an everyday computer skill into life-changing educational opportunities.
+        </p>
+      </div>
+
+      <div class="story-grid">
+        <div class="story-card-narrative">
+          <h3>The Digital Divide is an Opportunity Divide</h3>
+          <p>
+            In today's digital world, basic computer access is essential for learning, research, and future employment. Yet, thousands of underprivileged children in our communities have never owned or operated a computer.
+          </p>
+          <p>
+            Without digital access, these bright young minds fall behind in education and digital literacy. <strong>Team Beyond the Ordinary</strong> launched <em>Type to change a future</em> to provide refurbished laptops, sponsored internet access, and digital literacy workshops for children in need.
+          </p>
+          <div class="team-badge-box">
+            🌟 <strong>Organized by Team Beyond the Ordinary</strong><br>
+            Follow our journey on Instagram & TikTok: <strong>@type4future</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SMALL QR CODE AT THE VERY END (ACCESS TO THIS WEB APP)
+       ========================================================================== -->
+  <section id="mini-qr-section" class="mini-qr-section">
+    <div class="container">
+      <div class="mini-qr-card">
+        <div class="mini-qr-code-box">
+          <canvas id="website-qr-canvas"></canvas>
+        </div>
+        <div class="mini-qr-info">
+          <h4 class="mini-qr-title">📱 Scan to Open Challenge on Mobile</h4>
+          <p class="mini-qr-subtext">
+            Scan to access this website on your smartphone: <br><code>typetochangethefuture.org</code>
+          </p>
+          <div class="mini-qr-download-row">
+            <a href="website_qr.png" download="TypeToChange_Challenge_QR.png" class="mini-qr-btn">
+              Download PNG
+            </a>
+            <a href="website_qr.svg" download="TypeToChange_Challenge_QR.svg" class="mini-qr-btn">
+              Download SVG
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SITE FOOTER
+       ========================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <h4>Type to change a future</h4>
+          <p>
+            An initiative by <strong>Team Beyond the Ordinary</strong>. Turning everyday keyboard agility into educational opportunity for children who lack computers.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h5>Campaign Socials</h5>
+          <div class="footer-social-buttons">
+            <a href="https://instagram.com/type4future" target="_blank" rel="noopener noreferrer" class="btn-social-touch-mini btn-social-touch-ig">
+              <svg class="social-svg-icon" viewBox="0 0 24 24" fill="currentColor" style="width:14px;height:14px;">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+              </svg>
+              <span>@type4future</span>
+            </a>
+            <a href="https://www.tiktok.com/@type4future" target="_blank" rel="noopener noreferrer" class="btn-social-touch-mini btn-social-touch-tt">
+              <svg class="social-svg-icon" viewBox="0 0 24 24" fill="currentColor" style="width:14px;height:14px;">
+                <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64c.29 0 .58.04.86.12V9.32a6.33 6.33 0 0 0-.86-.06 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.75a8.18 8.18 0 0 0 4.77 1.52V6.82a4.85 4.85 0 0 1-1-.13z"/>
+              </svg>
+              <span>@type4future</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h5>Quick Links</h5>
+          <ul>
+            <li><a href="#leaderboard">Leaderboard</a></li>
+            <li><a href="#typing-arena">Typing Arena</a></li>
+            <li><a href="#about">About the Mission</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          © 2026 <strong>Beyond the Ordinary</strong>. Campaign: Type to change a future.
+        </div>
+        <div>
+          Digital Literacy for Every Child
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       MODALS
+       ========================================================================== -->
+
+  <!-- 1. POPUP: PLEASE INSERT YOUR NICKNAME & CHOOSE DIFFICULTY -->
+  <div id="nickname-prompt-modal" class="modal-container">
+    <div class="modal-backdrop"></div>
+    <div class="modal-dialog">
+      <button class="modal-close-btn">&times;</button>
+      
+      <div style="text-align: center; margin-bottom: 20px;">
+        <div style="font-size: 38px; margin-bottom: 6px;">⌨️</div>
+        <h3 style="font-size: 22px; font-weight: 800; color: #fff;">
+          Please Insert Your Nickname
+        </h3>
+        <p style="font-size: 13px; color: var(--text-muted); margin-top: 4px;">
+          Choose a unique nickname and difficulty before stepping into the arena!
+        </p>
+      </div>
+
+      <form id="nickname-prompt-form" onsubmit="return false;">
+        <!-- Nickname Input with Real-Time Validation -->
+        <div class="form-group" style="margin-bottom: 16px;">
+          <label class="form-label" for="player-nickname-input">1. Your Nickname (Must Be Unique)</label>
+          <input 
+            type="text" 
+            id="player-nickname-input" 
+            class="input-styled" 
+            placeholder="e.g. TurboSarah, Keith99..." 
+            maxlength="15"
+            autocomplete="off"
+          >
+          <div id="nickname-feedback" class="nickname-feedback default">
+            Nickname must be 3-15 characters and unique on the leaderboard.
+          </div>
+        </div>
+
+        <!-- Avatar Selection -->
+        <div class="form-group" style="margin-bottom: 16px;">
+          <label class="form-label">2. Choose Your Avatar</label>
+          <div class="avatar-selector">
+            <button class="avatar-option active" data-avatar="🚀" type="button">🚀</button>
+            <button class="avatar-option" data-avatar="⚡" type="button">⚡</button>
+            <button class="avatar-option" data-avatar="🤖" type="button">🤖</button>
+            <button class="avatar-option" data-avatar="❤️" type="button">❤️</button>
+            <button class="avatar-option" data-avatar="✨" type="button">✨</button>
+            <button class="avatar-option" data-avatar="🐱" type="button">🐱</button>
+          </div>
+        </div>
+
+        <!-- Choose Difficulty Level inside popup -->
+        <div class="form-group" style="margin-bottom: 16px;">
+          <label class="form-label">3. Choose Challenge Level</label>
+          <div class="popup-level-grid">
+            <button class="popup-level-btn" data-level="novice" type="button">
+              <div class="popup-level-title">🌱 Novice</div>
+              <div class="popup-level-time">60s Limit</div>
+            </button>
+            <button class="popup-level-btn active" data-level="challenger" type="button">
+              <div class="popup-level-title">⚡ Challenger</div>
+              <div class="popup-level-time">45s Limit</div>
+            </button>
+            <button class="popup-level-btn" data-level="master" type="button">
+              <div class="popup-level-title">🔥 Master</div>
+              <div class="popup-level-time">30s Limit</div>
+            </button>
+          </div>
+        </div>
+
+        <!-- Instagram Handle (Optional) -->
+        <div class="form-group" style="margin-bottom: 22px;">
+          <label class="form-label" for="player-ig-input">4. Instagram Handle (Optional)</label>
+          <input 
+            type="text" 
+            id="player-ig-input" 
+            class="input-styled" 
+            placeholder="@yourhandle (to get featured on @type4future)"
+            maxlength="30"
+            autocomplete="off"
+          >
+        </div>
+
+        <button id="confirm-nickname-btn" class="btn-primary-glow" style="width: 100%; justify-content: center;" type="submit" disabled>
+          Ready to Challenge ➔
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- 2. Results Modal -->
+  <div id="results-modal" class="modal-container">
+    <div class="modal-backdrop"></div>
+    <div class="modal-dialog">
+      <button class="modal-close-btn">&times;</button>
+      
+      <div class="results-header">
+        <div class="results-player-title" id="result-player-title">🚀 Anonymous Typist</div>
+        <div id="result-rank-badge" class="rank-badge rank-lightning">⚡ Lightning Pioneer</div>
+      </div>
+
+      <div id="result-challenge-alert" class="challenge-alert hidden"></div>
+
+      <div class="results-score-grid">
+        <div class="score-box">
+          <div class="score-box-label">Speed</div>
+          <div class="score-box-val wpm-score" id="result-wpm-val">0</div>
+          <div class="metric-unit">WPM</div>
+        </div>
+        <div class="score-box">
+          <div class="score-box-label">Accuracy</div>
+          <div class="score-box-val" id="result-acc-val">100%</div>
+        </div>
+        <div class="score-box">
+          <div class="score-box-label">Time</div>
+          <div class="score-box-val" id="result-time-val">0s</div>
+        </div>
+      </div>
+
+      <div class="results-actions-list">
+        <button id="submit-to-leaderboard-btn" class="btn-primary-glow" style="width: 100%; justify-content: center;">
+          ✓ Score Posted on Leaderboard
+        </button>
+        <button id="retry-challenge-btn" class="btn-secondary-outline" style="width: 100%; justify-content: center;">
+          🔄 Beat the Best Score (Retry)
+        </button>
+        <button id="open-share-modal-btn" class="btn-secondary-outline" style="width: 100%; justify-content: center;">
+          📤 Share Score & Challenge Friends
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. Share Score & Challenge Friends Modal -->
+  <div id="share-score-modal" class="modal-container">
+    <div class="modal-backdrop"></div>
+    <div class="modal-dialog">
+      <button class="modal-close-btn">&times;</button>
+      
+      <h3 style="font-size: 20px; font-weight: 800; color: #fff; text-align: center; margin-bottom: 6px;">
+        Share Your Score & Challenge Friends
+      </h3>
+      <p style="font-size: 13px; color: var(--text-muted); text-align: center; margin-bottom: 20px;">
+        Post your story graphic and invite your network to beat your speed for children's education!
+      </p>
+
+      <div class="story-preview-container">
+        <canvas id="story-card-canvas"></canvas>
+      </div>
+
+      <div style="margin-bottom: 20px;">
+        <button id="download-share-card-btn" class="btn-primary-glow" style="width: 100%; justify-content: center;">
+          📥 Download Story Graphic (1080x1080 PNG)
+        </button>
+      </div>
+
+      <div class="share-link-group">
+        <input type="text" id="share-link-input" class="input-styled" readonly>
+        <button id="copy-challenge-link-btn" class="btn-secondary-outline" style="white-space: nowrap;">
+          📋 Copy Link
+        </button>
+      </div>
+
+      <div class="social-share-buttons-grid">
+        <button id="share-whatsapp-btn" class="btn-wa-share">
+          💬 WhatsApp
+        </button>
+        <button id="share-instagram-btn" class="btn-ig-caption">
+          📸 Instagram / TikTok
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/qrcode.js"></script>
+  <script src="js/confetti.js"></script>
+  <script src="js/audio.js"></script>
+  <script src="js/passages.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
