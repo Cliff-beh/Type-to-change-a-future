@@ -192,7 +192,7 @@
     const heroStartBtn = document.getElementById('hero-start-btn');
     if (heroStartBtn) {
       heroStartBtn.addEventListener('click', () => {
-        handleStartChallengeAction(false, true);
+        handleStartChallengeAction(false);
       });
     }
 
@@ -311,12 +311,6 @@
     syncLevelUI(currentPlayer.level);
 
     openModal('nickname-prompt-modal');
-    // Only auto-focus on desktop; on mobile phone, programmatic focus causes unwanted screen scroll
-    if (window.innerWidth > 768) {
-      setTimeout(() => {
-        if (input) input.focus({ preventScroll: true });
-      }, 150);
-    }
   }
 
   function initNicknameValidation() {
@@ -348,13 +342,6 @@
           saveLeaderboard();
           updatePlayerStatusChip();
           closeModal('nickname-prompt-modal');
-
-          // Never auto-scroll on mobile phone to avoid jarring viewport jump
-          const isMobileDevice = window.innerWidth <= 768 || /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
-          if (!isMobileDevice) {
-            const arena = document.getElementById('typing-arena');
-            if (arena) arena.scrollIntoView({ behavior: 'smooth' });
-          }
         }
       });
     }
@@ -407,15 +394,10 @@
     return currentPlayer.nickname && currentPlayer.nickname.trim().length >= 3;
   }
 
-  function handleStartChallengeAction(autoStart = true, fromHero = false) {
+  function handleStartChallengeAction(autoStart = true) {
     if (!hasNickname()) {
       openNicknameModal();
     } else {
-      const isMobileDevice = window.innerWidth <= 768 || /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
-      if (fromHero && !isMobileDevice) {
-        const arena = document.getElementById('typing-arena');
-        if (arena) arena.scrollIntoView({ behavior: 'smooth' });
-      }
       if (autoStart) {
         triggerCountdown();
       }
@@ -465,6 +447,53 @@
     }, 800);
   }
 
+  // --- Viewport Scroll-Lock Helper for Mobile/Tablet Focus ---
+  let isScrollLocked = false;
+  let lockedScrollX = 0;
+  let lockedScrollY = 0;
+  let lockTimer = null;
+
+  function safeFocusWithoutScroll(el) {
+    if (!el) return;
+    lockedScrollX = window.pageXOffset || window.scrollX || document.documentElement.scrollLeft || 0;
+    lockedScrollY = window.pageYOffset || window.scrollY || document.documentElement.scrollTop || 0;
+
+    isScrollLocked = true;
+    clearTimeout(lockTimer);
+
+    try {
+      el.focus({ preventScroll: true });
+    } catch (err) {
+      el.focus();
+    }
+
+    const restore = () => {
+      if ((window.pageYOffset || window.scrollY || 0) !== lockedScrollY || (window.pageXOffset || window.scrollX || 0) !== lockedScrollX) {
+        window.scrollTo(lockedScrollX, lockedScrollY);
+      }
+    };
+
+    restore();
+    requestAnimationFrame(restore);
+    setTimeout(restore, 30);
+    setTimeout(restore, 80);
+    setTimeout(restore, 150);
+    setTimeout(restore, 300);
+    setTimeout(restore, 450);
+
+    // Release programmatic scroll lock after on-screen virtual keyboard animation finishes
+    lockTimer = setTimeout(() => {
+      isScrollLocked = false;
+    }, 550);
+  }
+
+  // Prevent unwanted auto-scrolls triggered by mobile/tablet virtual keyboards during focus
+  window.addEventListener('scroll', () => {
+    if (isScrollLocked) {
+      window.scrollTo(lockedScrollX, lockedScrollY);
+    }
+  }, { passive: false });
+
   // --- Typing Engine ---
   function initTypingEngine() {
     const inputField = document.getElementById('typing-hidden-input');
@@ -492,7 +521,7 @@
         } else if (!testActive && !isCountingDown) {
           triggerCountdown();
         } else if (testActive && inputField) {
-          inputField.focus({ preventScroll: true });
+          safeFocusWithoutScroll(inputField);
         }
       });
     }
@@ -504,7 +533,7 @@
         } else if (!testActive && !isCountingDown) {
           triggerCountdown();
         } else if (testActive && inputField) {
-          inputField.focus({ preventScroll: true });
+          safeFocusWithoutScroll(inputField);
         }
       });
     }
@@ -662,7 +691,7 @@
     const inputField = document.getElementById('typing-hidden-input');
     if (inputField) {
       inputField.value = '';
-      inputField.focus({ preventScroll: true });
+      safeFocusWithoutScroll(inputField);
     }
 
     const startContainer = document.getElementById('arena-start-container');
@@ -1329,11 +1358,15 @@
   }
 
   // --- Modal Helpers ---
+  let savedModalScrollX = 0;
+  let savedModalScrollY = 0;
+
   function openModal(id) {
     const modal = document.getElementById(id);
     if (modal) {
+      savedModalScrollX = window.pageXOffset || window.scrollX || document.documentElement.scrollLeft || 0;
+      savedModalScrollY = window.pageYOffset || window.scrollY || document.documentElement.scrollTop || 0;
       modal.classList.add('active');
-      document.body.style.overflow = 'hidden';
     }
   }
 
@@ -1341,7 +1374,7 @@
     const modal = document.getElementById(id);
     if (modal) {
       modal.classList.remove('active');
-      document.body.style.overflow = '';
+      window.scrollTo(savedModalScrollX, savedModalScrollY);
     }
   }
 
@@ -1350,7 +1383,7 @@
       const modal = e.target.closest('.modal-container');
       if (modal) {
         modal.classList.remove('active');
-        document.body.style.overflow = '';
+        window.scrollTo(savedModalScrollX, savedModalScrollY);
       }
     });
   });
