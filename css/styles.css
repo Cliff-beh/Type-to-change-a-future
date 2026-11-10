@@ -45,7 +45,6 @@
 }
 
 html {
-  scroll-behavior: smooth;
   font-family: var(--font-sans);
   background-color: var(--bg-primary);
   color: var(--text-main);
@@ -1355,11 +1354,12 @@ button {
   50% { opacity: 0; }
 }
 
-/* Hidden input field for typing capture (fixed at viewport top with 16px to prevent mobile auto-scroll & auto-zoom) */
+/* Hidden input field for typing capture: centered in the arena card with zero opacity to prevent mobile/tablet auto-scrolling */
 .typing-hidden-input {
-  position: fixed;
-  top: 0;
-  left: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   width: 1px;
   height: 1px;
   opacity: 0;
@@ -1843,6 +1843,7 @@ button {
   opacity: 0;
   pointer-events: none;
   transition: opacity var(--transition-fast);
+  overscroll-behavior: contain;
 }
 
 .modal-container.active {
@@ -1872,6 +1873,7 @@ button {
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
   max-height: 90vh;
   overflow-y: auto;
+  overscroll-behavior: contain;
 }
 
 .modal-close-btn {
